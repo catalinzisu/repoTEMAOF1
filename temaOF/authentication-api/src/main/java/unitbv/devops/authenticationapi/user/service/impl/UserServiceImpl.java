@@ -8,15 +8,15 @@ import unitbv.devops.authenticationapi.token.Token;
 import unitbv.devops.authenticationapi.token.TokenRepository;
 import unitbv.devops.authenticationapi.user.entity.Role;
 import unitbv.devops.authenticationapi.user.entity.User;
-import unitbv.devops.authenticationapi.user.mapper.UserMapper; // <-- Importă Mapper-ul static
+import unitbv.devops.authenticationapi.user.mapper.UserMapper;
 import unitbv.devops.authenticationapi.user.repository.UserRepository;
 import unitbv.devops.authenticationapi.user.service.UserService;
 
 import java.time.Instant;
-import java.util.List; // <-- Asigură-te că e java.util.List
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors; // <-- Importă Collectors
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -85,8 +85,6 @@ public class UserServiceImpl implements UserService {
         return Optional.of(new AuthenticationResponse(accessToken, refreshToken));
     }
 
-    // --- Metoda ta GETALLUSERS (Din Lab 5) ---
-    // Aceasta este metoda pe care am omis-o din greșeală
     @Override
     public List<UserResponse> getAllUsers() {
         System.out.println("=== SERVICE: getAllUsers() called ===");

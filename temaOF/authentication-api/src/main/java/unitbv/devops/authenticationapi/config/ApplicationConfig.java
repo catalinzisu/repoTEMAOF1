@@ -22,14 +22,15 @@ public class ApplicationConfig {
     private final PasswordEncoder passwordEncoder;
 
     @Bean
-    public UserDetailsService userDetailsService() {
+    public UserDetailsService userDetailsService() { //UserDetails e o metoda din spring si doar incarca username ul
         return username -> userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    // AICI ESTE "REȚETA" PE CARE O CAUTĂ SPRING
     @Bean
     public AuthenticationProvider authenticationProvider() {
+        //proceseaza autentificarea, cand cineva incearca sa
+        // se logheze acest provider va lua userul si va compara parolele
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder);
