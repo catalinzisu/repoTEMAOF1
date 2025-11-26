@@ -37,8 +37,7 @@ public class SecurityConfig {
                                 "/configuration/**",
                                 "/api/auth/register",
                                 "/api/auth/login",
-                                "/api/auth/token",
-                                "/api/health"
+                                "/api/auth/token"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

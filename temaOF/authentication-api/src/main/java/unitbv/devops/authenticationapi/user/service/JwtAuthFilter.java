@@ -120,7 +120,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     private boolean isPublicEndpoint(String requestURI) {
         return requestURI.equals("/") ||
-                requestURI.equals("/api/health") ||
                 requestURI.startsWith("/swagger-ui") ||
                 requestURI.startsWith("/v3/api-docs") ||
                 requestURI.startsWith("/webjars") ||
